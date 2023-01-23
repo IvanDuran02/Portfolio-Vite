@@ -1,20 +1,28 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import ParallaxText from "../components/ParalaxText";
 
 const FirstComponent = () => {
   return (
-    <div className="h-screen w-screen flex justify-center items-center">
+    <div className="h-[90vh] w-screen flex flex-col justify-center items-center">
       <motion.div
         animate={{ opacity: 1 }}
         transition={{ from: 0, delay: 1, type: "spring" }}
       >
-        <h1 className="text-4xl">Welcome to my Portfolio!</h1>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ margin: "-20%" }}
+          transition={{ delay: 0.5 }}
+          className="text-3xl font-extrabold"
+        >
+          <img
+            src="https://media.istockphoto.com/id/1256493285/photo/smiling-young-businessman-using-video-chat-or-taking-selfie-at-city-center.jpg?s=612x612&w=0&k=20&c=HL6RtRuJ-OUVnScr2jV1MrL25a9BS8bkTDl0tl6zUo4="
+            alt="Selfie"
+            className="rounded-full w-[40vh] h-[40vh] object-cover"
+          />
+        </motion.div>
       </motion.div>
-      <div className="absolute right-8 space-y-4">
-        <div className=" rounded-full w-4 bg-gray-300 h-4" />
-        <div className=" rounded-full w-4 bg-gray-600 h-4" />
-        <div className=" rounded-full w-4 bg-gray-600 h-4" />
-      </div>
     </div>
   );
 };
@@ -27,11 +35,6 @@ const SecondComponent = () => {
       >
         <h1 className="text-4xl">Welcome to my Portfolio!</h1>
       </motion.div>
-      <div className="absolute right-8 space-y-4">
-        <div className=" rounded-full w-4 bg-gray-600 h-4" />
-        <div className=" rounded-full w-4 bg-gray-300 h-4" />
-        <div className=" rounded-full w-4 bg-gray-600 h-4" />
-      </div>
     </div>
   );
 };
@@ -44,19 +47,32 @@ const ThirdComponent = () => {
       >
         <h1 className="text-4xl">Welcome to my Portfolio!</h1>
       </motion.div>
-      <div className="absolute right-8 space-y-4">
-        <div className=" rounded-full w-4 bg-gray-600 h-4" />
-        <div className=" rounded-full w-4 bg-gray-600 h-4" />
-        <div className=" rounded-full w-4 bg-gray-300 h-4" />
-      </div>
     </div>
   );
 };
 
 export const Home = () => {
   return (
-    <div className="max-w-[1440px] flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center overflow-hidden">
+      <motion.div
+        className="pt-2"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+      >
+        <ParallaxText baseVelocity={-1}>
+          Welcome to my Portfolio, Thanks for stopping by! - Ivan Duran's
+          Portfolio
+        </ParallaxText>
+        <ParallaxText baseVelocity={1}>
+          我喜欢学习中文和日语 ｜ 日本語もう勉強すきです ｜ Привет ｜ ¿cómo
+          estás? ｜
+        </ParallaxText>
+      </motion.div>
       <FirstComponent />
+      <ParallaxText baseVelocity={2}>
+        Check out some of my Projects
+      </ParallaxText>
       <SecondComponent />
       <ThirdComponent />
     </div>
