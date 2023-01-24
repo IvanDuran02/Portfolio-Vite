@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import ParallaxText from "../components/ParalaxText";
+import { Loading } from "./Loading";
 
 const FirstComponent = () => {
   return (
@@ -54,26 +55,17 @@ const ThirdComponent = () => {
 export const Home = () => {
   return (
     <div className="flex flex-col justify-center items-center overflow-hidden">
+      <Loading />
       <motion.div
         className="pt-2"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-      >
-        <ParallaxText baseVelocity={-1}>
-          Welcome to my Portfolio, Thanks for stopping by! - Ivan Duran's
-          Portfolio
-        </ParallaxText>
-        <ParallaxText baseVelocity={1}>
-          我喜欢学习中文和日语 ｜ 日本語もう勉強すきです ｜ Привет ｜ ¿cómo
-          estás? ｜
-        </ParallaxText>
-      </motion.div>
+      ></motion.div>
       <FirstComponent />
-      <ParallaxText baseVelocity={2}>
-        Check out some of my Projects
-      </ParallaxText>
+
       <SecondComponent />
+
       <ThirdComponent />
     </div>
   );
