@@ -7,10 +7,10 @@ export const Loading = () => {
   const [title, setTitle] = useState(<></>);
   useEffect(() => {
     // starts animation sequence
+
     sequence();
   }, []);
   const sequence = async () => {
-    console.log("Hello, world");
     await animation.start({ scale: 1, opacity: 1 });
     await animation.start({ y: -125 });
     setTitle(
@@ -46,7 +46,7 @@ export const Loading = () => {
         transition={{ delay: 3, duration: 1 }}
         className="flex w-full justify-center items-center space-x-2"
       >
-        <div className="w-[15vh] p-1 rounded-xl bg-red-400 flex justify-center items-center gap-1 hover:cursor-pointer hover:-translate-y-1 transition-all">
+        <div className="w-[15vh] p-1 rounded-xl bg-red-400 flex justify-center items-center gap-1 hover:cursor-pointer hover:-translate-y-1 transition-all text-cen">
           Resume <FaDownload className="w-[2vh] h-[2vh] bg-red-400 " />
         </div>
         <a target="_blank" href="https://github.com/IvanDuran02">
