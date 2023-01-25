@@ -16,7 +16,7 @@ html {
 
 section {
   position: relative;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 body::-webkit-scrollbar {
