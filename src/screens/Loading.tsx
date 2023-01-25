@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import { FaArrowDown, FaDownload, FaGithub } from "react-icons/fa";
 
@@ -6,10 +6,7 @@ export const Loading = () => {
   const animation = useAnimationControls();
   const [title, setTitle] = useState(<></>);
   useEffect(() => {
-    // brings window to top when reloaded
-    window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    };
+    // starts animation sequence
     sequence();
   }, []);
   const sequence = async () => {
@@ -21,9 +18,10 @@ export const Loading = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="absolute text-4xl"
+        className="absolute text-4xl flex"
       >
         Ivan Duran
+        <div className="animate-pulse text-red-400">.</div>
       </motion.div>
     );
   };
@@ -51,9 +49,11 @@ export const Loading = () => {
         <div className="w-[15vh] p-1 rounded-xl bg-red-400 flex justify-center items-center gap-1 hover:cursor-pointer hover:-translate-y-1 transition-all">
           Resume <FaDownload className="w-[2vh] h-[2vh] bg-red-400 " />
         </div>
-        <div className="w-[15vh] p-1 rounded-xl bg-red-400 flex justify-center items-center gap-1 hover:cursor-pointer hover:-translate-y-1 transition-all">
-          GitHub <FaGithub className="w-[2.5vh] h-[2.5vh] bg-red-400" />
-        </div>
+        <a target="_blank" href="https://github.com/IvanDuran02">
+          <div className="w-[15vh] p-1 rounded-xl bg-red-400 flex justify-center items-center gap-1 hover:cursor-pointer hover:-translate-y-1 transition-all">
+            GitHub <FaGithub className="w-[2.5vh] h-[2.5vh] bg-red-400" />
+          </div>
+        </a>
       </motion.div>
       <motion.div
         className="absolute bottom-10"

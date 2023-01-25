@@ -9,6 +9,16 @@
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  scroll-snap-type: y mandatory;
+  scroll-snap-align: center;
+}
+
+section {
+  position: relative;
+  scroll-snap-align: center;
+}
+
 body::-webkit-scrollbar {
   width: 10px; /* width of the entire scrollbar */
 }
@@ -16,12 +26,12 @@ body::-webkit-scrollbar-track {
   background: #212121; /* color of the tracking area */
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #f7f7f7; /* color of the scroll thumb */
+  background-color: #f87171; /* color of the scroll thumb */
   border-radius: 20px; /* roundness of the scroll thumb */
   border: 3px solid #212121; /* creates padding around scroll thumb */
 }
 
-.parallax {
+/* .parallax {
   overflow: hidden;
   letter-spacing: -2px;
   line-height: 0.9;
@@ -41,4 +51,4 @@ body::-webkit-scrollbar-thumb {
 .parallax span {
   display: block;
   margin-right: 30px;
-}
+} */

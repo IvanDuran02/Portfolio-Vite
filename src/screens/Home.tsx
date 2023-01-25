@@ -1,72 +1,46 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import FirstComponent from "../components/FirstComponent";
 import ParallaxText from "../components/ParalaxText";
+import SecondComponent from "../components/SecondComponent";
+import SnapComponent from "../components/SnapComponent";
 import { Loading } from "./Loading";
 
-const FirstComponent = () => {
-  return (
-    <div className="h-[90vh] w-screen flex flex-col justify-center items-center">
-      <motion.div
-        animate={{ opacity: 1 }}
-        transition={{ from: 0, delay: 1, type: "spring" }}
-      >
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ margin: "-20%" }}
-          transition={{ delay: 0.5 }}
-          className="text-3xl font-extrabold"
-        >
-          <img
-            src="https://media.istockphoto.com/id/1256493285/photo/smiling-young-businessman-using-video-chat-or-taking-selfie-at-city-center.jpg?s=612x612&w=0&k=20&c=HL6RtRuJ-OUVnScr2jV1MrL25a9BS8bkTDl0tl6zUo4="
-            alt="Selfie"
-            className="rounded-full w-[40vh] h-[40vh] object-cover"
-          />
-        </motion.div>
-      </motion.div>
-    </div>
-  );
-};
-const SecondComponent = () => {
-  return (
-    <div className="h-screen w-screen flex justify-center items-center">
-      <motion.div
-        animate={{ opacity: 1 }}
-        transition={{ from: 0, delay: 1, type: "spring" }}
-      >
-        <h1 className="text-4xl">Welcome to my Portfolio!</h1>
-      </motion.div>
-    </div>
-  );
-};
-const ThirdComponent = () => {
-  return (
-    <div className="h-screen w-screen flex justify-center items-center">
-      <motion.div
-        animate={{ opacity: 1 }}
-        transition={{ from: 0, delay: 1, type: "spring" }}
-      >
-        <h1 className="text-4xl">Welcome to my Portfolio!</h1>
-      </motion.div>
-    </div>
-  );
-};
+// declare module 'react' {
+//     interface HTMLAtrributes<T> {
+//         children?: ReactI18NextChild | Iterable<ReactI18NextChild>
+//     }
+// }
 
 export const Home = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  useEffect(() => {
+    // brings window to top when reloaded
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+  }, []);
   return (
-    <div className="flex flex-col justify-center items-center overflow-hidden">
-      <Loading />
+    <main className="flex flex-col justify-center items-center overflow-clip">
+      <>
+        {[
+          <Loading key={0} />,
+          <FirstComponent key={1} />,
+          <SecondComponent key={2} />,
+        ].map((component, index) => (
+          <SnapComponent props={component} key={index} type={null} />
+        ))}
+      </>
       <motion.div
-        className="pt-2"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      ></motion.div>
-      <FirstComponent />
-
-      <SecondComponent />
-
-      <ThirdComponent />
-    </div>
+        className="fixed top-0 left-0 right-0 h-2 origin-left bg-red-400"
+        style={{ scaleX }}
+      />
+    </main>
   );
 };
