@@ -18,6 +18,13 @@ section {
   scroll-snap-align: start;
 }
 
+body {
+  /* prevent overscroll bounce*/
+  background-color: lightgreen;
+
+  -webkit-overflow-scrolling: touch;
+  /* iOS velocity scrolling */
+}
 body::-webkit-scrollbar {
   width: 10px; /* width of the entire scrollbar */
 }

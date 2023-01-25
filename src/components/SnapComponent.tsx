@@ -7,7 +7,7 @@ const SnapComponent = ({ props }: JSX.Element) => {
   };
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 900);
+  const y = useParallax(scrollYProgress, 300);
 
   return (
     <section>
