@@ -68,7 +68,9 @@ export const Loading = () => {
         transition={{ delay: 3, duration: 2 }}
       >
         <div className="flex flex-col justify-center items-center space-y-2 animate-bounce">
-          <span className="underline italic opacity-70">Scroll Me!</span>
+          <span className="underline italic opacity-70">
+            Scroll Me! - Work in progress
+          </span>
           <FaArrowDown className="opacity-70 w-[2.5vh] h-[2.5vh]" />
         </div>
       </motion.div>

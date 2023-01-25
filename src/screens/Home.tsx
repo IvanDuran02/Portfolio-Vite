@@ -28,7 +28,8 @@ export const Home = () => {
   }, []);
   return (
     <main className="flex flex-col justify-center items-center overflow-clip">
-      <>
+      <Loading />
+      {/* <>
         {[
           <Loading key={0} />,
           <FirstComponent key={1} />,
@@ -36,7 +37,7 @@ export const Home = () => {
         ].map((component, index) => (
           <SnapComponent props={component} key={index} type={null} />
         ))}
-      </>
+      </> */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-2 origin-left bg-red-400"
         style={{ scaleX }}
