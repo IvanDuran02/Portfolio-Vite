@@ -59,7 +59,6 @@ export const Loading = () => {
         className="absolute bottom-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ margin: "-10%" }}
         transition={{ delay: 3, duration: 2 }}
       >
         <div className="flex flex-col justify-center items-center space-y-2 animate-bounce">
