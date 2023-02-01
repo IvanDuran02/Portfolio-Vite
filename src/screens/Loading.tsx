@@ -3,6 +3,7 @@ import { motion, useAnimationControls } from "framer-motion";
 import { FaArrowDown, FaDownload, FaGithub } from "react-icons/fa";
 import { useWindowSize } from "../components/WindowHook";
 import Resume from "../assets/Resume.pdf";
+import Selfie from "../assets/me.jpg";
 
 export const Loading = () => {
   const windowSize = useWindowSize();
@@ -38,7 +39,7 @@ export const Loading = () => {
         className="text-3xl font-extrabold"
       >
         <img
-          src="https://media.istockphoto.com/id/1256493285/photo/smiling-young-businessman-using-video-chat-or-taking-selfie-at-city-center.jpg?s=612x612&w=0&k=20&c=HL6RtRuJ-OUVnScr2jV1MrL25a9BS8bkTDl0tl6zUo4="
+          src={`${Selfie}`}
           alt="Selfie"
           className="rounded-full w-[20vh] h-[20vh] object-cover"
         />
