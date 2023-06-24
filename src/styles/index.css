@@ -5,6 +5,7 @@
 * {
   font-family: "Concert One", cursive;
   color: white;
+  z-index: 1;
   -webkit-font-smoothing: antialiased;
 }
 
