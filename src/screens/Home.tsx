@@ -1,8 +1,6 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import FirstComponent from "../components/FirstComponent";
-import ParallaxText from "../components/ParalaxText";
-import SecondComponent from "../components/SecondComponent";
+import greenBlob from "../assets/greenBlob.svg";
 import SnapComponent from "../components/SnapComponent";
 import { Loading } from "./Loading";
 
@@ -87,14 +85,14 @@ const Projects = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center items-start">
-      <h2 className="underline text-3xl font-bold h-auto text-center pl-8">
+    <div className="flex flex-col justify-center items-start overflow-y-hidden">
+      <h2 className="underline text-3xl font-bold h-auto text-center pl-8 z-10">
         My Projects.
       </h2>
-      <div className="max-w-[1440px] p-4 md:flex md:justify-between ">
+      <div className="max-w-[1440px] p-4 md:flex md:justify-between z-10">
         {projectData.map((project) => (
           <ProjectComponents
-            className="p-1 bg-white rounded-md mb-4 max-w-[640px] m-4"
+            className="p-1 bg-white rounded-md mb-4 max-w-[640px] m-4 z-10"
             key={project.name}
             name={project.name}
             desc={project.desc}
@@ -104,6 +102,11 @@ const Projects = () => {
           />
         ))}
       </div>
+      <img
+        src={greenBlob}
+        alt="blob"
+        className="absolute h-[55vh] -right-64 -bottom-32 rotate-90"
+      />
     </div>
   );
 };

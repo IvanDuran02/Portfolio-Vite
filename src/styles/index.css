@@ -4,7 +4,6 @@
 
 * {
   font-family: "Concert One", cursive;
-  background-color: #212121;
   color: white;
   -webkit-font-smoothing: antialiased;
 }
@@ -20,8 +19,7 @@ section {
 
 body {
   /* prevent overscroll bounce*/
-  background-color: lightgreen;
-
+  background-color: #212121;
   -webkit-overflow-scrolling: touch;
   /* iOS velocity scrolling */
 }
