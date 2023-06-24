@@ -9,23 +9,24 @@
   -webkit-font-smoothing: antialiased;
 }
 
-html {
+/* html {
   scroll-snap-type: y mandatory;
 }
 
 section {
   position: relative;
   scroll-snap-align: start;
-}
+} */
 
 body {
   /* prevent overscroll bounce*/
   background-color: #212121;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   /* iOS velocity scrolling */
 }
 body::-webkit-scrollbar {
-  width: 10px; /* width of the entire scrollbar */
+  width: 12px; /* width of the entire scrollbar */
 }
 body::-webkit-scrollbar-track {
   background: #212121; /* color of the tracking area */

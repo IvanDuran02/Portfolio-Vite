@@ -15,27 +15,28 @@ export const Home = () => {
   // Workaround for window snapping being kind of weird on mobile devices due to collapsible menu bars...
   const isMobile = window.innerWidth <= 768;
 
-  if (isMobile) {
-    return (
-      <main className="flex flex-col justify-center items-center overflow-x-hidden">
-        <Loading />
-        <Projects />
-        <ScrollProgress />
-      </main>
-    );
-  }
-
+  // if (isMobile) {
   return (
-    <main className="flex flex-col justify-center items-center overflow-x-hidden">
-      <>
-        {[<Loading key={0} />, <Projects key={1} />].map((component, index) => (
-          <SnapComponent props={component} key={index} type={null} />
-        ))}
-      </>
+    <main className="flex flex-col justify-center items-center">
+      <Loading />
+
+      <Projects />
       <ScrollProgress />
     </main>
   );
 };
+
+//   return (
+//     <main className="flex flex-col justify-center items-center overflow-x-hidden">
+//       <>
+//         {[<Loading key={0} />, <Projects key={1} />].map((component, index) => (
+//           <SnapComponent props={component} key={index} type={null} />
+//         ))}
+//       </>
+//       <ScrollProgress />
+//     </main>
+//   );
+// };
 
 const ScrollProgress = () => {
   const { scrollYProgress } = useScroll();

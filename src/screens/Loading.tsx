@@ -32,7 +32,7 @@ export const Loading = () => {
     );
   };
   return (
-    <div className="w-screen h-screen max-w-[1440px] flex flex-col justify-center items-center overflow-x-hidden">
+    <div className="w-screen h-screen max-w-[1440px] flex flex-col justify-center items-center ">
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
@@ -74,7 +74,7 @@ export const Loading = () => {
           <FaArrowDown className="opacity-70 w-[2.5vh] h-[2.5vh]" />
         </div>
       </motion.div>
-      <img
+      {/* <img
         src={blob4}
         alt="blob"
         className="absolute h-[55vh] -left-64 bottom-0 hidden md:flex"
@@ -82,8 +82,8 @@ export const Loading = () => {
       <img
         src={blob4}
         alt="blob"
-        className="absolute h-[55vh] -right-64 top-0 rotate-90 hidden md:flex"
-      />
+        className="h-[55vh] -right-64 top-0 rotate-90 hidden md:flex"
+      /> */}
     </div>
   );
 };
