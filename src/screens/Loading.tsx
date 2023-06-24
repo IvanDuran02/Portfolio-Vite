@@ -77,12 +77,12 @@ export const Loading = () => {
       <img
         src={blob4}
         alt="blob"
-        className="absolute h-[55vh] -left-64 bottom-0"
+        className="absolute h-[55vh] -left-64 bottom-0 hidden md:flex"
       />
       <img
         src={blob4}
         alt="blob"
-        className="absolute h-[55vh] -right-64 top-0 rotate-90"
+        className="absolute h-[55vh] -right-64 top-0 rotate-90 hidden md:flex"
       />
     </div>
   );

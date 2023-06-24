@@ -105,7 +105,7 @@ const Projects = () => {
       <img
         src={greenBlob}
         alt="blob"
-        className="absolute h-[55vh] right-0 bottom-0 -translate-y-1/2 translate-x-1/2 -rotate-90"
+        className="absolute h-[55vh] right-0 bottom-0 -translate-y-1/2 translate-x-1/2 -rotate-90 hidden md:flex"
       />
     </div>
   );
