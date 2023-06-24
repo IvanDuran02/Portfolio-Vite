@@ -32,7 +32,7 @@ export const Loading = () => {
     );
   };
   return (
-    <div className="w-screen h-screen max-w-[1440px] flex flex-col justify-center items-center">
+    <div className="w-screen h-screen max-w-[1440px] flex flex-col justify-center items-center overflow-x-hidden">
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}

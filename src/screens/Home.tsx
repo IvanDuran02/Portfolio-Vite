@@ -16,7 +16,7 @@ export const Home = () => {
 
   if (isMobile) {
     return (
-      <main className="flex flex-col justify-center items-center overflow-clip">
+      <main className="flex flex-col justify-center items-center overflow-x-hidden">
         <Loading />
         <Projects />
         <ScrollProgress />
@@ -25,7 +25,7 @@ export const Home = () => {
   }
 
   return (
-    <main className="flex flex-col justify-center items-center overflow-clip">
+    <main className="flex flex-col justify-center items-center overflow-x-hidden">
       <>
         {[<Loading key={0} />, <Projects key={1} />].map((component, index) => (
           <SnapComponent props={component} key={index} type={null} />
@@ -85,7 +85,7 @@ const Projects = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center items-start overflow-y-hidden">
+    <div className="flex flex-col justify-center items-start overflow-x-hidden">
       <h2 className="underline text-3xl font-bold h-auto text-center pl-8 z-10">
         My Projects.
       </h2>
@@ -105,7 +105,7 @@ const Projects = () => {
       <img
         src={greenBlob}
         alt="blob"
-        className="absolute h-[55vh] -right-64 -bottom-32 rotate-90"
+        className="absolute h-[55vh] right-0 bottom-0 -translate-y-1/2 translate-x-1/2 -rotate-90"
       />
     </div>
   );
