@@ -13,18 +13,26 @@ import { Loading } from "./Loading";
 // }
 
 export const Home = () => {
+  // Workaround for window snapping being kind of weird on mobile devices due to collapsible menu bars...
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) {
+    return (
+      <main className="flex flex-col justify-center items-center overflow-clip">
+        <Loading />
+        <Projects />
+        <ScrollProgress />
+      </main>
+    );
+  }
+
   return (
     <main className="flex flex-col justify-center items-center overflow-clip">
-      <Loading />
-      {/* <> Snap scrolling implementation
-        {[
-          <Loading key={0} />,
-          <FirstComponent key={1} />,
-          <SecondComponent key={2} />,
-        ].map((component, index) => (
+      <>
+        {[<Loading key={0} />, <Projects key={1} />].map((component, index) => (
           <SnapComponent props={component} key={index} type={null} />
         ))}
-      </> */}
+      </>
       <ScrollProgress />
     </main>
   );
@@ -49,5 +57,85 @@ const ScrollProgress = () => {
       className="fixed top-0 left-0 right-0 h-2 origin-left bg-red-400"
       style={{ scaleX }}
     />
+  );
+};
+
+const Projects = () => {
+  const projectData = [
+    {
+      name: "GymBros.",
+      desc: "Mobile app for tracking gym progress with friends!",
+      image: "/src/assets/gymbros.png",
+      alt: "Gymbros Website Image",
+      web: "https://getgymbros.com",
+    },
+    {
+      name: "GymBros.",
+      desc: "Mobile app for tracking gym progress with friends!",
+      image: "/src/assets/gymbros.png",
+      alt: "Gymbros Website Image",
+      web: "https://getgymbros.com",
+    },
+    {
+      name: "GymBros.",
+      desc: "Mobile app for tracking gym progress with friends!",
+      image: "/src/assets/gymbros.png",
+      alt: "Gymbros Website Image",
+      web: "https://getgymbros.com",
+    },
+    // Add more project data objects here
+  ];
+
+  return (
+    <div className="flex flex-col justify-center items-start">
+      <h2 className="underline text-3xl font-bold h-auto text-center pl-8">
+        My Projects.
+      </h2>
+      <div className="max-w-[1440px] p-4 md:flex md:justify-between ">
+        {projectData.map((project) => (
+          <ProjectComponents
+            className="p-1 bg-white rounded-md mb-4 max-w-[640px] m-4"
+            key={project.name}
+            name={project.name}
+            desc={project.desc}
+            image={project.image}
+            alt={project.alt}
+            web={project.web}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const ProjectComponents = ({
+  name,
+  desc,
+  image,
+  alt,
+  web,
+  className,
+}: {
+  className: string;
+  name: string;
+  desc: string;
+  image: string;
+  alt: string;
+  web: string;
+}) => {
+  return (
+    <a href={web} target="_blank">
+      <div className={className}>
+        <img className="shadow-xl" src={image} alt={alt} />
+        <div className="-bottom-2 -right-2 bg-transparent text-black p-2">
+          <span className="relative bg-transparent text-black underline text-xl font-bold">
+            {name}
+          </span>
+          <p className="bg-transparent text-black opacity-60 text-sm pl-1">
+            {desc}
+          </p>
+        </div>
+      </div>
+    </a>
   );
 };

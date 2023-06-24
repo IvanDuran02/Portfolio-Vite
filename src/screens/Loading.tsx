@@ -25,8 +25,8 @@ export const Loading = () => {
         transition={{ delay: 0.3 }}
         className="absolute text-4xl flex"
       >
-        Ivan Duran
-        <div className="animate-pulse text-red-400">.</div>
+        <h1>Ivan Duran</h1>
+        <span className="animate-pulse text-red-400">.</span>
       </motion.div>
     );
   };
