@@ -53,12 +53,12 @@ export const Loading = () => {
         className="flex w-full justify-center items-center space-x-2 z-10"
       >
         <a href={Resume} download="Ivan's Resume.pdf">
-          <div className="w-[15vh] p-1 rounded-xl bg-red-400 flex justify-center items-center gap-1 hover:cursor-pointer hover:-translate-y-1 transition-all text-center z-10">
+          <div className="w-[15vh] h-[5vh] p-1 rounded-xl bg-red-400 flex justify-center items-center self-center gap-1 hover:cursor-pointer hover:-translate-y-1 transition-all text-center z-10">
             Resume <FaDownload className="w-[2vh] h-[2vh] bg-red-400  z-10" />
           </div>
         </a>
         <a target="_blank" href="https://github.com/IvanDuran02">
-          <div className="w-[15vh] p-1 rounded-xl bg-red-400 flex justify-center items-center gap-1 hover:cursor-pointer hover:-translate-y-1 transition-all z-10">
+          <div className="w-[15vh] h-[5vh] p-1 rounded-xl bg-red-400 flex justify-center items-center self-center gap-1 hover:cursor-pointer hover:-translate-y-1 transition-all z-10">
             GitHub <FaGithub className="w-[2.5vh] h-[2.5vh] bg-red-400 z-10" />
           </div>
         </a>
